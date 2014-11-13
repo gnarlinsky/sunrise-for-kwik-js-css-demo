@@ -53,7 +53,26 @@ var reddish = "b82b00";
 var yellowish = "f5d930";
 var light_yellowish = "ffeeb9";
 var orangeish = "fca210";
-var colors = new Array(blackish, reddish, yellowish, light_yellowish, orangeish);
+// (http://www.perbang.dk/rgbgradient/ to generate the in-betweens)
+var colors = new Array( blackish,
+                        "491600",
+                        "6E1D00",
+                        "932400",
+                        reddish,
+                        "C7560C",
+                        "D68218",
+                        "E5AD24",
+                        yellowish,
+                        "F7DE52",
+                        "FAE374",
+                        "FCE896",
+                        light_yellowish,
+                        "FEDB8E",
+                        "FDC864",
+                        "FCB53A",
+                        orangeish
+                        // 
+                       );
 // <------------------ 
 
 var start  = colors[0];
@@ -152,6 +171,10 @@ function JSFX_StartEffects()
 			<li>white noise option -- volume DECREASES</li>
 			<li>duration option</li>
             <li>show the colors</li>
+            <li>according to wikipedia, the "sunglow" color is FFCC33. Would it
+            make sense to just get a bunch of gradations between black and
+            sunglow, e.g. at
+            http://www.perbang.dk/rgb/FCB53A/?</li>
 		</ol>
 	</div>
 
