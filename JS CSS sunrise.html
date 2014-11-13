@@ -33,7 +33,13 @@ function getColor(start, end, percent){
 	var r2 = hex2dec(end.slice(0,2)),   g2=hex2dec(end.slice(2,4)),   b2=hex2dec(end.slice(4,6));
 	var pc = percent/100;
 	var r  = Math.floor(r1+(pc*(r2-r1)) + .5), g=Math.floor(g1+(pc*(g2-g1)) + .5), b=Math.floor(b1+(pc*(b2-b1)) + .5);
-	return("#" + dec2hex(r) + dec2hex(g) + dec2hex(b));
+	//return("#" + dec2hex(r) + dec2hex(g) + dec2hex(b));
+
+    // nk
+    var color = "#" + dec2hex(r) + dec2hex(g) + dec2hex(b);
+    document.getElementById("current_color").innerText = color;
+    document.getElementById("current_color").style.color = color;
+    return color;
 }
 /************************************************/
 </script>
@@ -74,7 +80,7 @@ function fadeSpan()
 
 	//setTimeout("fadeSpan()", 100);
 	//console.log(document.getElementsByName("durationValueInput")[0].value);
-	setTimeout("fadeSpan()", document.getElementsByName("durationValueInput")[0].value);
+	setTimeout("fadeSpan()", document.getElementById("durationValueInput").value);
 }
 function fadeAll()
 {
@@ -109,20 +115,28 @@ function JSFX_StartEffects()
 		text-align: left;
 	}
 
-	.sunrise_colored { 
-		border: 2px gray solid; 
-		width: 250px; 
+	.sunrise_colored {
+		border: 2px gray solid;
+		width: 250px;
 		height: 250px;
 		margin: 15px 25px 15px; /* top, right and left, bottom */
 		display: inline-block;
 		vertical-align: top;
-	}	
+	}
 
 	#duration_input_container {
-		width:100%; 
-		text-align:center; 
+		width:100%;
+		text-align: center;
 		margin-top: 10px;
 	}
+
+    #current_color {
+		width:100px;
+		text-align: center;
+        margin: auto;
+		margin-top: 10px;
+        background-color: gray;
+    }
 </style>
 
 </head>
@@ -137,6 +151,7 @@ function JSFX_StartEffects()
 			<li>page background/sun-holding-container background should change as well, MAYBE. (i.e. simulate the sky brightening to light blue)</li>
 			<li>white noise option -- volume DECREASES</li>
 			<li>duration option</li>
+            <li>show the colors</li>
 		</ol>
 	</div>
 
@@ -145,12 +160,12 @@ function JSFX_StartEffects()
 </div>
 
 <div id="duration_input_container">
-	<form>
 		Duration of each color change:&nbsp;
-		<input type="text" name="durationValueInput"  value="100" style="width:50px" />
+		<input type="text" id="durationValueInput"  value="100" style="width:50px" />
 		(takes effect right away)
-	</form>
 </div>
+
+<div id="current_color">[current color]</div>
 
 </body>
 </html>
